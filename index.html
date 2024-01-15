@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Frontend Mentor | Calculator app</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <div class="name"><p>Calc</p></div>
+        <div class="themeSelect">
+          <p>Theme</p>
+          <div class="themeBtn">
+            <div id="tabs">
+              <span onclick="moveBall(1)">1</span>
+              <span onclick="moveBall(2)">2</span>
+              <span onclick="moveBall(3)">3</span>
+            </div>
+            <div class="circle">
+              <div id="circleBtn"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form action="">
+        <div class="display">
+          <input type="text" name="display" />
+        </div>
+        <div class="num">
+          <input type="button" value="7" onclick="display.value += '7'" />
+          <input type="button" value="8" onclick="display.value += '8'"/>
+          <input type="button" value="9" onclick="display.value += '9'"/>
+          <input type="button" value="DEL" onclick="display.value = display.value.toString().slice(0, -1)" class="del"/>
+
+          <input type="button" value="4" onclick="display.value += '4'"/>
+          <input type="button" value="5" onclick="display.value += '5'"/>
+          <input type="button" value="6" onclick="display.value += '6'"/>
+          <input type="button" value="+" onclick="display.value += '+'"/>
+
+          <input type="button" value="1" onclick="display.value += '1'"/>
+          <input type="button" value="2" onclick="display.value += '2'"/>
+          <input type="button" value="3" onclick="display.value += '3'"/>
+          <input type="button" value="-" onclick="display.value += '-'"/>
+
+          <input type="button" value="." onclick="display.value += '.'"/>
+          <input type="button" value="0" onclick="display.value += '0'"/>
+          <input type="button" value="/" onclick="display.value += '/'"/>
+          <input type="button" value="x" onclick="display.value += '*'"/>
+        </div>
+
+        <div class="submit">
+          <input type="button" value="RESET" class="reset" onclick="display.value = ''"/>
+          <input type="button" value="=" class="eSign" onclick="display.value = eval(display.value)"/>
+        </div>
+      </form>
+    <script>
+      function moveBall(num) {
+        var BtnPosition = document.getElementById("circleBtn");
+        if (num === 1) {
+          BtnPosition.style.left = "2px";
+        } else if (num === 2) {
+          BtnPosition.style.left = "25px";
+        } else if (num === 3) {
+          BtnPosition.style.left = "50px";
+        }
+      }
+    </script>
+    <script>
+      function checkType(valu) {
+        return typeof valu;
+      }
+
+      function calVal(val) {
+        var currentVal = (document.getElementById("output").innerHTML += val);
+      }
+      var currentVal = document.getElementById("output").innerHTML;
+      function calculate() {
+        console.log(currentVal);
+      }
+
+      function dele() {
+        document.getElementById("output").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
